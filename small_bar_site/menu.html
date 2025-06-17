@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>菜单 / Menù</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>菜单 / Menù</h2>
+  <ul id="menu-list"></ul>
+
+  <p id="desc">欢迎光临我们的小酒馆！Benvenuti nel nostro piccolo bar!</p>
+  <p>地址 / Indirizzo: Via Roma 1, Milano</p>
+  <p>电话 / Telefono: 123-456789</p>
+
+<script>
+  fetch("../data/menu.json")
+    .then(r => r.json())
+    .then(items => {
+      const ul = document.getElementById("menu-list");
+      items.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        ul.appendChild(li);
+      });
+    });
+</script>
+</body>
+</html>

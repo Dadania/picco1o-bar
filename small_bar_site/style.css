@@ -1,0 +1,4 @@
+
+body { font-family: Arial; padding: 20px; }
+header, section, nav, footer { margin-bottom: 20px; }
+img { max-width: 100px; border-radius: 8px; }
