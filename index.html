@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Piccola Taverna</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .carousel {
+      width: 100%;
+      max-height: 300px;
+      overflow: hidden;
+      position: relative;
+    }
+    .carousel img {
+      width: 100%;
+      height: auto;
+      display: none;
+      object-fit: cover;
+    }
+    .carousel img.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="title">Piccola Taverna</h1>
+    <p id="hours">Orario di apertura: 18:00 - 02:00</p>
+    <div class="language-switch">
+      <button onclick="setLanguage('it')">🇮🇹 Italiano</button>
+      <button onclick="setLanguage('zh')">🇨🇳 中文</button>
+    </div>
+    <input type="text" placeholder="Cerca..." id="search" />
+  </header>
+
+  <div class="carousel">
+    <img src="img1.jpg" class="active" alt="Drink 1" />
+    <img src="img2.jpg" alt="Drink 2" />
+  </div>
+
+  <main>
+    <section id="new">
+      <h2>Novità</h2>
+      <p>Nuovi drink disponibili ogni settimana!</p>
+    </section>
+    <section id="discount">
+      <h2>Sconti</h2>
+      <p>Happy hour: 18:00 - 20:00</p>
+    </section>
+  </main>
+
+  <footer>
+    <a href="menu.html">Menu & Contatti</a>
+  </footer>
+
+  <script src="lang.js"></script>
+  <script>
+    let current = 0;
+    const images = document.querySelectorAll('.carousel img');
+    setInterval(() => {
+      images[current].classList.remove('active');
+      current = (current + 1) % images.length;
+      images[current].classList.add('active');
+    }, 4000);
+  </script>
+</body>
+</html>
